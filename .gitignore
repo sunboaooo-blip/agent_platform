@@ -1,0 +1,34 @@
+# Credentials are NEVER in this repo. On the host they live at:
+#   ~/.config/discord/discord   (bot app id + token)
+#   ~/.config/discord/webhook   (webhook URL)
+#   ~/nas-upload/config.json    (NAS host/user/password)
+# If anything below ever appears here, rotate the secret -- it is burned.
+config.json
+nas-config.json
+hive-config.sh
+hive.json
+discord
+webhook
+*.env
+.env*
+*.key
+*.pem
+id_rsa*
+
+# Generated files that embed live account figures
+SYSTEM.md
+SA_FACTS.md
+
+# Runtime state / logs -- never commit
+state/
+logs/
+conversation/
+__pycache__/
+*.pyc
+*.bak*
+
+# Defensive net -- anything credential-shaped, wherever it appears
+*token*
+*secret*
+*credential*
+*.env.*

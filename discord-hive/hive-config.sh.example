@@ -1,0 +1,11 @@
+# hive-config.sh -- copy to hive-config.sh (gitignored) and fill in real ids.
+# Source it before running hive-post.sh / hive-watch.py, or export these vars.
+# Real ids come from the Discord Developer Portal + your channel.
+
+export HIVE_CHANNEL_ID="0000000000000000000"   # target text channel
+export HIVE_GUILD_ID="0000000000000000000"     # your guild
+export HIVE_CONF_DIR="$HOME/.config/discord"   # dir holding 'discord' + 'webhook' (mode 600)
+
+# LLM endpoint for the responder
+export HIVE_LLM_URL="http://127.0.0.1:8004/v1"
+export HIVE_LLM_MODEL="qwen3.8-flash-next"

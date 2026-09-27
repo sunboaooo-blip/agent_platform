@@ -1,0 +1,9 @@
+{
+  "host": "nas.example.internal",
+  "port": 5005,
+  "user": "YOUR_NAS_USER",
+  "password": "YOUR_NAS_PASSWORD",
+  "timeout": 60,
+  "drop_dir": "~/nas-drop",
+  "remote_drop_dest": "/home/sba/ai_pipeline/"
+}

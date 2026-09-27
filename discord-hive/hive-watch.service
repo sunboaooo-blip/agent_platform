@@ -1,0 +1,26 @@
+[Unit]
+Description=Hive Discord channel watcher (REST poll -> llama.cpp :8004)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/llm-node/hive/hive-watch.py
+WorkingDirectory=%h/llm-node/hive
+Restart=on-failure
+RestartSec=15
+# Exit 1 is a config/cursor error -- retrying cannot fix it, and a restart loop
+# on a corrupt cursor would burn log space while silently refusing to ingest.
+# (RestartSec must exceed StartLimitIntervalSec=10 or a crash-loop wedges the unit.)
+RestartPreventExitStatus=1
+Nice=10
+MemoryMax=500M
+Environment=PYTHONUNBUFFERED=1
+# HIVE_CHANNEL_ID=2000000000000000003
+# HIVE_LLM_URL=http://127.0.0.1:8004/v1
+# HIVE_LLM_MODEL=qwen3.8-flash-next
+# HIVE_THINKING=off
+# HIVE_MAX_REPLIES=20
+
+[Install]
+WantedBy=default.target
